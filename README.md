@@ -12,9 +12,9 @@
 - (필수) React.js, Recoil, SCSS
 - (필수) eslint, prettier 설정
 - (필수) 함수 컴포넌트로 제작
-- (선택) CRA, Webpack, Vite
+- (선택) ~CRA~, Webpack, Vite, ESbuild, SWC, Rollup
 - (선택) msw, react-query / SWR
-- (선택) Figma, MUI, Ant Design, Tailwind CSS
+- (선택) Figma, MUI, Ant Design, shadcn UI, chakra UI / Tailwind CSS 
 - (선택) 계정 유효성 검사
 
 ## EX02. 유저 권한별 routing page
