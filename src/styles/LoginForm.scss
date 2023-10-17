@@ -1,13 +1,37 @@
 .login-form {
-  max-width: 17rem;
-  .input-group {
-    display: flex;
-    justify-content: space-between;
-    padding-top: 1rem;
+  min-width: 16rem;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
 
-    input {
-      flex-grow: 1; // 컨테이너에서 남는 공간 차지
-      max-width: 13rem;
+  .inputs-wrapper {
+    display: flex;
+    flex-direction: column;
+
+    .input-group {
+      min-width: 11.2rem;
+      display: flex;
+      justify-content: space-between;
+      padding-bottom: 1.3rem;
+
+      input {
+        max-width: 13rem;
+        border-radius: 5px;
+      }
+    }
+  }
+
+  .login-button {
+    padding: 1rem;
+    background-color: blue;
+    color: white;
+    border: none;
+    cursor: pointer;
+    height: 4rem;
+    border-radius: 10px;
+
+    &:hover {
+      background-color: darkblue;
     }
   }
 }
