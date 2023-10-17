@@ -1,0 +1,13 @@
+.login-form {
+  max-width: 17rem;
+  .input-group {
+    display: flex;
+    justify-content: space-between;
+    padding-top: 1rem;
+
+    input {
+      flex-grow: 1; // 컨테이너에서 남는 공간 차지
+      max-width: 13rem;
+    }
+  }
+}
