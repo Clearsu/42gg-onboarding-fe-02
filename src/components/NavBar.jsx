@@ -1,12 +1,13 @@
 import { React } from 'react';
+import { Link } from 'react-router-dom';
 import '../styles/NavBar.scss';
 
 export default function NavBar() {
   return (
     <nav className="nav-bar">
-      <a href="/cat">Cat</a>
-      <a href="/dog">Dog</a>
-      <a href="/monkey">Monkey</a>
+      <Link to="/">Home</Link>
+      <Link to="/about">About</Link>
+      <Link to="/contact">Contact</Link>
     </nav>
   );
 }
