@@ -23,7 +23,7 @@
 
   .login-button {
     padding: 1rem;
-    background-color: blue;
+    background-color: #ffb74d;
     color: white;
     border: none;
     cursor: pointer;
@@ -31,7 +31,7 @@
     border-radius: 10px;
 
     &:hover {
-      background-color: darkblue;
+      background-color: #c68f3c;
     }
   }
 }
