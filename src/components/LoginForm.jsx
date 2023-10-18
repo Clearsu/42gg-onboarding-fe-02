@@ -42,7 +42,6 @@ export default function LoginForm() {
       isLoggedIn: true,
     };
     setUserStateValue(newUser);
-    localStorage.setItem('user', JSON.stringify(newUser));
   }
 
   useEffect(() => {
@@ -62,6 +61,7 @@ export default function LoginForm() {
               type="text"
               placeholder="아이디를 입력하세요."
               onChange={idChangeHandler}
+              autoComplete="username"
             />
           </div>
           <div className="input-group">
@@ -71,6 +71,7 @@ export default function LoginForm() {
               type="password"
               placeholder="비밀번호를 입력하세요."
               onChange={pwChangeHandler}
+              autoComplete="current-password"
             />
           </div>
         </div>
