@@ -1,7 +1,11 @@
 .side-bar {
+  position: fixed;
+  top: 0;
+  right: 0;
+  height: 100vh;
   display: flex;
   flex-direction: column;
-  padding: 2rem;
+  padding: 2rem 1rem 1rem 1rem;
   gap: 5rem;
-  background-color: burlywood;
+  background-color: #00695c;
 }

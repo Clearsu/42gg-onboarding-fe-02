@@ -1,8 +1,15 @@
 .nav-bar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 5rem;
+  box-sizing: border-box; // 테두리와 패딩을 요소의 너비/높이 계산에 포함
   display: flex;
+  padding: 2rem 8rem 2rem 2rem;
   justify-content: space-between;
-  padding: 3rem;
-  background-color: antiquewhite;
+  background-color: #004d40;
+  z-index: 0;
 
   a {
     color: rgb(84, 122, 58);
