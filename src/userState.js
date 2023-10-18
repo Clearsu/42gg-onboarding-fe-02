@@ -1,8 +1,12 @@
 import { atom } from 'recoil';
+import { recoilPersist } from 'recoil-persist';
+
+const { persistAtom } = recoilPersist();
 
 const userState = atom({
   key: 'userState',
-  default: JSON.parse(localStorage.getItem('user')) || { isLoggedIn: false },
+  default: { isLoggedIn: false, auth: '' },
+  effects_UNSTABLE: [persistAtom],
 });
 
 export default userState;
