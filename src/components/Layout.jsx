@@ -6,12 +6,10 @@ import '../styles/Layout.scss';
 
 export default function Layout({ children }) {
   return (
-    <div>
+    <div className="layout">
       <NavBar />
-      <div className="layout-main-wrapper">
-        <SideBar />
-        <main>{children}</main>
-      </div>
+      <SideBar />
+      <main>{children}</main>
     </div>
   );
 }
