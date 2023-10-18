@@ -5,7 +5,17 @@
   height: 100vh;
   display: flex;
   flex-direction: column;
+  align-items: center;
   padding: 2rem 1rem 1rem 1rem;
   gap: 5rem;
   background-color: #00695c;
+
+  .side-bar-icon {
+    border-radius: 5px;
+    cursor: pointer;
+  }
+
+  .side-bar-icon:hover {
+    background-color: #009987;
+  }
 }

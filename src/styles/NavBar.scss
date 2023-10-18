@@ -11,7 +11,13 @@
   background-color: #004d40;
   z-index: 0;
 
-  a {
-    color: rgb(84, 122, 58);
+  .nav-bar-link {
+    text-decoration: none;
+    color: white;
+    border-radius: 5px;
+
+    &:hover {
+      font-weight: 700;
+    }
   }
 }

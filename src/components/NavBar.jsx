@@ -5,9 +5,15 @@ import '../styles/NavBar.scss';
 export default function NavBar() {
   return (
     <nav className="nav-bar">
-      <Link to="/">Home</Link>
-      <Link to="/about">About</Link>
-      <Link to="/contact">Contact</Link>
+      <Link to="/" className="nav-bar-link">
+        Home
+      </Link>
+      <Link to="/about" className="nav-bar-link">
+        About
+      </Link>
+      <Link to="/contact" className="nav-bar-link">
+        Contact
+      </Link>
     </nav>
   );
 }
