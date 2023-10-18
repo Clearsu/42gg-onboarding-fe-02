@@ -1,30 +1,36 @@
-import { React, useEffect } from 'react';
-import { Routes, Route } from 'react-router-dom';
-import { useRecoilState } from 'recoil';
-import userState from './userState';
+import { React } from 'react';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import ProtectedRoute from './components/ProtectedRoute';
 import LoginPage from './pages/LoginPage';
 import Home from './pages/Home';
 import MyPage from './pages/MyPage';
 import PageNotFound from './pages/PageNotFound';
+import AboutPage from './pages/AboutPage';
+import ContactPage from './pages/ContactPage';
+import AdminPage from './pages/AdminPage';
+import ManagerPage from './pages/ManagerPage';
+import NoAuthPage from './pages/NoAuthPage';
 
 export default function App() {
-  const [loggedInUser, setLoggedInUser] = useRecoilState(userState);
-
-  useEffect(() => {
-    const user = JSON.parse(localStorage.getItem('user'));
-    if (user) {
-      setLoggedInUser(user);
-    }
-  }, []);
-
   return (
-    <Routes>
-      <Route path="/" element={<Home />} />
-      <Route path="/login" element={<LoginPage />} />
-      {loggedInUser.isLoggedIn && (
-        <Route path="/my-page" element={<MyPage />} />
-      )}
-      <Route path="*" element={<PageNotFound />} />
-    </Routes>
+    <BrowserRouter>
+      <Routes>
+        <Route path="/login" element={<LoginPage />} />
+        <Route element={<ProtectedRoute normal />}>
+          <Route path="/" element={<Home />} />
+          <Route path="/about" element={<AboutPage />} />
+          <Route path="/contact" element={<ContactPage />} />
+          <Route path="/my-page" element={<MyPage />} />
+        </Route>
+        <Route element={<ProtectedRoute manager />}>
+          <Route path="/manage" element={<ManagerPage />} />
+        </Route>
+        <Route element={<ProtectedRoute admin />}>
+          <Route path="/admin" element={<AdminPage />} />
+        </Route>
+        <Route path="/no-auth" element={<NoAuthPage />} />
+        <Route path="*" element={<PageNotFound />} />
+      </Routes>
+    </BrowserRouter>
   );
 }
