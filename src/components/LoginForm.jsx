@@ -9,6 +9,8 @@ export default function LoginForm() {
   const navigate = useNavigate();
   const [id, setId] = useState('');
   const [pw, setPw] = useState('');
+  const [isIdEmpty, setIsIdEmpty] = useState(false);
+  const [isPwEmpty, setIsPwEmpty] = useState(false);
   const [isValid, setIsValid] = useState(true);
   const [userStateValue, setUserStateValue] = useRecoilState(userState);
 
@@ -22,6 +24,16 @@ export default function LoginForm() {
 
   async function loginHandler(event) {
     event.preventDefault();
+    if (id === '') {
+      setIsIdEmpty(true);
+      return;
+    }
+    setIsIdEmpty(false);
+    if (pw === '') {
+      setIsPwEmpty(true);
+      return;
+    }
+    setIsPwEmpty(false);
     try {
       const response = await fetch('/login', {
         method: 'POST',
@@ -51,7 +63,7 @@ export default function LoginForm() {
 
   useEffect(() => {
     if (userStateValue.isLoggedIn) {
-      navigate('/');
+      navigate('/', { replace: true });
     }
   }, [userStateValue]);
 
@@ -85,7 +97,12 @@ export default function LoginForm() {
         </button>
       </form>
       <div className="error-message">
-        {!isValid && '아이디 혹은 패스워드가 일치하지 않습니다.'}
+        {!isIdEmpty &&
+          !isPwEmpty &&
+          !isValid &&
+          '아이디 혹은 패스워드가 일치하지 않습니다.'}
+        {isIdEmpty && '아이디를 입력해주세요.'}
+        {!isIdEmpty && isPwEmpty && '비밀번호를 입력해주세요.'}
       </div>
     </div>
   );
