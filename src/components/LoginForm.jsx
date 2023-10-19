@@ -3,15 +3,13 @@ import { useNavigate } from 'react-router-dom';
 import { useState } from 'react';
 import { useRecoilState } from 'recoil';
 import userState from '../userState';
-import userInfo from '../userInfo';
 import '../styles/LoginForm.scss';
 
 export default function LoginForm() {
   const navigate = useNavigate();
   const [id, setId] = useState('');
   const [pw, setPw] = useState('');
-  const [isValidId, setIsValidId] = useState(true);
-  const [isValidPw, setIsValidPw] = useState(true);
+  const [isValid, setIsValid] = useState(true);
   const [userStateValue, setUserStateValue] = useRecoilState(userState);
 
   function idChangeHandler(event) {
@@ -22,26 +20,33 @@ export default function LoginForm() {
     setPw(event.target.value);
   }
 
-  function loginHandler(event) {
+  async function loginHandler(event) {
     event.preventDefault();
-    const user = userInfo.find((user) => {
-      return id === user.id;
-    });
-    if (!user) {
-      setIsValidId(false);
-      return;
+    try {
+      const response = await fetch('/login', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ username: id, password: pw }),
+      });
+      if (response.ok) {
+        const responseBody = await response.json();
+        const newUser = {
+          username: responseBody.username,
+          auth: responseBody.role,
+          isLoggedIn: true,
+        };
+        setUserStateValue(newUser);
+        console.log(responseBody.message);
+      } else {
+        const errorData = await response.json();
+        console.error(errorData.errorMessage);
+        setIsValid(false);
+      }
+    } catch (error) {
+      console.error('A network error occurred', error);
     }
-    setIsValidId(true);
-    if (pw != user.pw) {
-      setIsValidPw(false);
-      return;
-    }
-    setIsValidPw(true);
-    const newUser = {
-      auth: user.auth,
-      isLoggedIn: true,
-    };
-    setUserStateValue(newUser);
   }
 
   useEffect(() => {
@@ -80,8 +85,7 @@ export default function LoginForm() {
         </button>
       </form>
       <div className="error-message">
-        {!isValidId && '존재하지 않는 ID입니다.'}
-        {isValidId && !isValidPw && '비밀번호가 일치하지 않습니다.'}
+        {!isValid && '아이디 혹은 패스워드가 일치하지 않습니다.'}
       </div>
     </div>
   );
