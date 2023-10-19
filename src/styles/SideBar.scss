@@ -8,7 +8,7 @@
   align-items: center;
   padding: 2rem 1rem 1rem 1rem;
   gap: 5rem;
-  background-color: #67deb4;
+  background-color: rgb(255, 180, 127);
 
   .side-bar-icon {
     border-radius: 5px;
@@ -16,6 +16,6 @@
   }
 
   .side-bar-icon:hover {
-    background-color: #009987;
+    background-color: rgb(254, 212, 183);
   }
 }
