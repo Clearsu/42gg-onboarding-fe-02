@@ -14,6 +14,7 @@ export default function SideBar() {
 
   function logoutHandler() {
     setRecoilStateValue({
+      username: '',
       isLoggedIn: false,
       auth: '',
     });
