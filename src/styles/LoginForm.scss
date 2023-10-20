@@ -1,0 +1,54 @@
+$input-hover-focus-color: rgb(255, 180, 127);
+
+.login-form {
+  min-width: 16rem;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+
+  .inputs-wrapper {
+    display: flex;
+    flex-direction: column;
+
+    .input-group {
+      min-width: 11.2rem;
+      display: flex;
+      justify-content: space-between;
+      padding-bottom: 1.3rem;
+      font-weight: 800;
+
+      input {
+        max-width: 13rem;
+        border-radius: 5px;
+        border: none;
+        &:hover {
+          border: 1px solid $input-hover-focus-color;
+        }
+        &:focus {
+          border: 1px solid $input-hover-focus-color;
+        }
+      }
+    }
+  }
+
+  .login-button {
+    padding: 1rem;
+    background-color: #ffb74d;
+    color: white;
+    border: none;
+    cursor: pointer;
+    height: 4rem;
+    border-radius: 10px;
+    font-weight: 800;
+
+    &:hover {
+      background-color: #c68f3c;
+    }
+  }
+}
+
+.error-message {
+  text-align: center;
+  color: rgb(255, 101, 101);
+  font-weight: 900;
+}

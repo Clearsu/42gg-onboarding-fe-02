@@ -1,0 +1,11 @@
+.login-page {
+  height: 50vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  h2 {
+    margin-bottom: 20px;
+  }
+}

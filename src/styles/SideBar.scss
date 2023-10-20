@@ -1,0 +1,21 @@
+.side-bar {
+  position: fixed;
+  top: 0;
+  right: 0;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 2rem 1rem 1rem 1rem;
+  gap: 5rem;
+  background-color: rgb(255, 180, 127);
+
+  .side-bar-icon {
+    border-radius: 5px;
+    cursor: pointer;
+  }
+
+  .side-bar-icon:hover {
+    background-color: rgb(254, 212, 183);
+  }
+}
