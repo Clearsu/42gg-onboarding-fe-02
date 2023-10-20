@@ -4,6 +4,20 @@
 `npm install`
 `npm start`
 
+## 유저 정보
+
+id : jincpark
+pw : 1q2w3e4r
+auth : normal
+
+id: banana
+pw : bananaisyellow
+auth : manager
+
+id : apple
+pw : appleisred
+auth : admin
+
 ## 구현 기능
 ### 로그인 페이지
 아이디 혹은 패스워드가 비어있을 경우, 틀린 경우 경고 메시지를 출력합니다.
