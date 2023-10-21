@@ -5,16 +5,16 @@ import { PropTypes } from 'prop-types';
 import userState from '../userState';
 import PageNotFound from '../pages/PageNotFound';
 
-export default function ProtectedRoute({ normal, manager, admin }) {
+export default function ProtectedRoute({ normalPage, managerPage, adminPage }) {
   const userStateValue = useRecoilValue(userState);
 
-  if (!userStateValue.isLoggedIn && normal) {
+  if (!userStateValue.isLoggedIn && normalPage) {
     return <Navigate to="/login" replace={true} />;
   }
   if (
     !userStateValue.isLoggedIn ||
-    (userStateValue.auth === 'normal' && (admin || manager)) ||
-    (userStateValue.auth === 'manager' && admin)
+    (userStateValue.auth === 'normal' && (adminPage || managerPage)) ||
+    (userStateValue.auth === 'manager' && adminPage)
   ) {
     return <PageNotFound />;
   }
@@ -22,7 +22,7 @@ export default function ProtectedRoute({ normal, manager, admin }) {
 }
 
 ProtectedRoute.propTypes = {
-  normal: PropTypes.bool,
-  manager: PropTypes.bool,
-  admin: PropTypes.bool,
+  normalPage: PropTypes.bool,
+  managerPage: PropTypes.bool,
+  adminPage: PropTypes.bool,
 };

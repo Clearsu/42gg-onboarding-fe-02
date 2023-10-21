@@ -16,16 +16,16 @@ export default function App() {
     <BrowserRouter>
       <Routes>
         <Route path="/login" element={<LoginPage />} />
-        <Route element={<ProtectedRoute normal />}>
+        <Route element={<ProtectedRoute normalPage />}>
           <Route path="/" element={<Home />} />
           <Route path="/about" element={<AboutPage />} />
           <Route path="/contact" element={<ContactPage />} />
           <Route path="/my-page" element={<MyPage />} />
         </Route>
-        <Route element={<ProtectedRoute manager />}>
+        <Route element={<ProtectedRoute managerPage />}>
           <Route path="/manage" element={<ManagerPage />} />
         </Route>
-        <Route element={<ProtectedRoute admin />}>
+        <Route element={<ProtectedRoute adminPage />}>
           <Route path="/admin" element={<AdminPage />} />
         </Route>
         <Route path="/no-auth" element={<NoAuthPage />} />
